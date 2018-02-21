@@ -1,1 +1,2 @@
-This file serves as an introduction to your Knowledge Base, it is displayed on the homepage of your website. Use it to provide more context to your visitors.
+Целью данной работы служит знакомство с методами проектирования ООП программ на примере проекта создания карточных игр. Вначале будут озвучены общие принципы архитектурного проектирования в ООП, далее будут даны краткие описания классов и их реализация.
+

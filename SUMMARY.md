@@ -10,4 +10,7 @@
   * [Game](second-question/game.md)
   * [Phase](second-question/phase.md)
 * [Реализация](realizatsiya.md)
+  * [Ведьма](realizatsiya/vedma.md)
+    * [Player](realizatsiya/vedma/player.md)
+    * [Phases](realizatsiya/vedma/phases.md)
 

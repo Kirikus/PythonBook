@@ -11,7 +11,7 @@
   * [Phase](second-question/phase.md)
 * [Реализация](realizatsiya.md)
   * [Ведьма](realizatsiya/vedma.md)
-    * PokerCards
+    * [PokerCards](realizatsiya/vedma/pokercards.md)
     * [Player](realizatsiya/vedma/player.md)
     * [Phases](realizatsiya/vedma/phases.md)
     * [Game](realizatsiya/vedma/game.md)

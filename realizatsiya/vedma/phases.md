@@ -3,35 +3,43 @@
 ```py
 from phase import Phase
 from card import Card
-from witch_game import WitchGame
+from witch_game import WitchGame, WITCH_CARD
+
+class DiscardWithCard(Phase):
+  def __init__(self, player, card):
+    self.player = player
+    self.card = card
+    super(DiscardWithCard, self).__init__()
+  def play(self):
+    for other in self.player.hand:
+      if self.card == other or self.card == WITCH_CARD or other == WITCH_CARD:
+        continue
+      if self.card.value == other.value:
+        print("Player %s discards %s and %s" % (self.player.name, repr(self.card), repr(other)))
+        self.player.hand.remove(self.card)
+        self.player.hand.remove(other)
+        print("Player %s now has %s" % (self.player.name, self.player.hand))
+        return
 
 class DiscardPairs(Phase):
   def __init__(self, player):
     self.player = player
     super(DiscardPairs, self).__init__()
   def play(self):
-    while True:
-      discard = False
-      for i in self.player.hand:
-      
-        for j in self.player.hand:
-          if i == j:
-            continue
-          if i.value == j.value and i != WitchGame().WITCH_CARD and j != WitchGame().WITCH_CARD:
-            print("Player %s discards %s and %s" % (self.player.name, repr(i), repr(j)))
-            self.player.hand.remove(i)
-            self.player.hand.remove(j)
-            discard = True
-          if discard:
-            break
-        if discard:
-          break
-      if not discard:
-        break
-    print("Player %s now has %s" % (self.player.name, self.player.hand))
+    discard = False
+    for card in self.player.hand:
+      if card in self.player.hand:
+        DiscardWithCard(self.player, card)()
+
+class LeaveGame(Phase):
+  def __init__(self, player):
+    self.player = player
+    super(LeaveGame, self).__init__()
+  def play(self):
     if len(self.player.hand) == 0:
       print("Player %s has left the table" % (self.player.name))
       WitchGame().players.remove(self.player)
+
 
 class StealCard(Phase):
   def __init__(self, thief, victim):
@@ -48,12 +56,12 @@ class MainPhase(Phase):
   def play(self):
     game = WitchGame()
     StealCard(game.current_player, game.players[1])()
-    DiscardPairs(game.players[1])()
     DiscardPairs(game.current_player)()
+    LeaveGame(game.current_player)()
+    LeaveGame(game.players[1])()
     if len(game.players) == 1:
       game.loser = game.players[0]
       return
-
 ```
 
 

@@ -13,4 +13,5 @@
   * [Ведьма](realizatsiya/vedma.md)
     * [Player](realizatsiya/vedma/player.md)
     * [Phases](realizatsiya/vedma/phases.md)
+    * [Game](realizatsiya/vedma/game.md)
 

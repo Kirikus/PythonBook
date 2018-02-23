@@ -1,4 +1,4 @@
-# Summary
+# Оглавление
 
 * [Вступление](README.md)
 * [S.O.L.I.D.](first-question.md)
@@ -16,4 +16,6 @@
     * [Phases](realizatsiya/vedma/phases.md)
     * [Game](realizatsiya/vedma/game.md)
     * [Запуск](realizatsiya/vedma/zapusk.md)
+
+
 
